@@ -2,6 +2,15 @@
 
 
 
+:root {
+    --bgcolor-primary: #000000;
+    --font-color:#ffffff;
+    --border-color: #000000;
+    --bgcolor-secondary: #1d1d1d;
+    --bgcolor-chat-izq: #1d1d1d;
+    --bgcolor-chat-der: #0f5515;
+
+}
 
 *{ 
     padding: 0px;
@@ -30,17 +39,16 @@
 }
 
 .contenedor-chats::-webkit-scrollbar-track {
-    background: #f3c9e4; 
+    background-color: var(--font-color); 
     border-radius: 4px; 
 }
 
 .contenedor-chats::-webkit-scrollbar-thumb {
-    background-color:#88004F; 
+    background-color:var(--bgcolor-primary); 
     border-radius: 4px; 
 }
-
 .contenedor-chats::-webkit-scrollbar-thumb:hover {
-    background: #831c58;
+    background-color:  var(--bgcolor-secondary);
 }
 
 
@@ -62,8 +70,7 @@
 
 .chats {
     padding: 5px 10px 5px 5px;
-    background-color: #ff7dc9;
-    border: 3px solid #88004f ;
+    background-color: var(--bgcolor-chat-izq);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -76,7 +83,7 @@
 
 .der{
     
-    background-color: #f5bdde;
+    background-color:var(--bgcolor-chat-der);
 }
     
 
@@ -94,7 +101,7 @@
 }
 
 .author{
-    color:#460037;
+    color:var(--font-color);
     font-size: 90% ;
     font-weight: bold;
     width: 100%;
@@ -109,6 +116,7 @@
     height: auto;
     font-size: 80%;
     padding: 5px 15px 0px 5px;
+    color:var(--font-color);
 
 }
 
@@ -116,10 +124,13 @@
     display: flex;
     gap: 3px;
     align-items: center;
+    color:var(--font-color);
+
 }
 
 
 .day-hour{
     width: 100%;
+    color:var(--font-color);
 
 }

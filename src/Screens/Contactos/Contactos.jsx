@@ -15,7 +15,15 @@ export const Contactos = () => {
     <>
             <div className ='contact-screen'>
                 <div className='contactos-header'>
+                    <div className='icons'>
+                        <i className=" punto bi bi-three-dots"></i>
+                        <div className='icons-fns-left'>
+                        <i className=" punto bi bi-image-fill"></i>
+                        <i className=" add bi bi-plus-lg"></i>
+                        </div>
+                    </div>
                     <span className='titulos-contactos'>Chats</span>
+                    <input className='input-buscar' type="text" placeholder='Buscar' />
 
                 </div>
                 <div className='contacts'>
@@ -42,7 +50,34 @@ export const Contactos = () => {
                         )
 
                     })}
-                </div>    
+                </div> 
+
+        
+                <div className='container-opciones'>
+                                    <div className='icon-mje-buscar'>
+                                    <i class="bi bi-circle-square"></i>
+                                        <span>Novedades</span>
+                                    </div>
+                                    <div className="icon-mje-buscar">
+                                    <i className="bi bi-telephone"></i>
+                                        <span>LLamadas</span>
+                                    </div>
+                                    <div className="icon-mje-buscar">
+                                    <i className="bi bi-people-fill"></i>
+                                        <span>Comunidades</span>
+                                    </div>
+                                    <div className="icon-mje-buscar">
+                                    <i className="bi bi-chat"></i>
+                                        <span>Chats</span>
+                                    </div>
+                                    <div className="icon-mje-buscar">
+                                    <i className="bi bi-gear-wide-connected"></i>
+                                        <span>Configuracion</span>
+                                    </div>
+                                    
+                                </div>
+                
+           
             </div>
                 
         </>

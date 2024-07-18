@@ -5,12 +5,13 @@ export const MOOK_CONTACTOS =[
         nombre:  "Lola",
         apellido: "Suarez" ,
         id: 1,
-        telefono: '3584678909',
+        telefono: '+54 9 3584678909',
         estado:"Disponible",
         direccion:"San Juan 123",
         email: "lola@gmail.com" ,
         thumbnail: "https://www.creartuavatar.com/images/f10.svg",
         estado_contacto:"En linea",
+        nombre_usuario: "Lolaaaa :)",
         mensajes:[
                     {
                         author: 'Yo',
