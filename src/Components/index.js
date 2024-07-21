@@ -11,5 +11,6 @@ export{
     Header,
     NuevoMje,
     ListaDeMensajes,
-    ContactoData
+    ContactoData,
+    MyProfile,
 }
