@@ -5,4 +5,10 @@ import { NuevoMje } from "./FormularioEnvio/NuevoMje";
 import { ListaDeMensajes } from "./Lista-mjes/ListaMjes-1";
 import { ContactoData } from "./Contacto-data/ContactoData";
 
-export{Mensajes,Header,NuevoMje,ListaDeMensajes,ContactoData}
+export{
+    Mensajes,
+    Header,
+    NuevoMje,
+    ListaDeMensajes,
+    ContactoData
+}
