@@ -18,24 +18,66 @@
 
 
 
-
-.screen-chat{
+/* estilos modo celu */
+/* .screen-chat{
 
     height: 600px;
     width: 400px;
     background-image:  url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaZrnzmWOEpkD9QdxEWyyr1nwgM-KUAMWKvQ&s); 
-     /* background-color: #a03573 */; 
+     
     border: 5px solid var(--bgcolor-primary);
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-/*     gap:10px; */
+
     overflow: hidden;
     justify-content: center;
     align-items: center;
     
 
 }
+ */
+
+.chat-contact-desk{
+
+    height:843px;
+    max-width: 2000px;
+    background-color: rgb(146, 45, 45);
+   /*  border: 5px solid var(--bgcolor-primary); */
+    display: flex;
+    flex-direction: row;
+
+    overflow: hidden;
+    justify-content: space-between;
+    align-items: start;
+    
+
+}
 
 
 
+/* desktop */
+.screen-chat{
+
+    height: 100%;
+    width:80%;
+    background-image:  url(https://cloudfront-eu-central-1.images.arcpublishing.com/diarioas/7L3CG752LVMWBPX75F4W3Y7QGI.jpg);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    justify-content: start;
+    align-items: center;
+    
+
+}
+
+
+/* estilos para desktop */
+
+/* @media screen and (min-width: 1000px) {
+    .screen-chat{
+        display: flex;
+    }
+   
+}
+ */

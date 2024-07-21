@@ -19,12 +19,10 @@
     font-family: "Inter", sans-serif;
 } 
 
-
-
 .header{
     background-color:var(--bgcolor-secondary);
     border-bottom: 3px solid var(--bgcolor-secondary);
-    height: 15%;
+    height: 10%;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -45,7 +43,7 @@
     justify-content: start;
     padding: 10px 5px 10px 15px;
     align-items: center;
-    gap:10px;
+    gap:20px;
     overflow: hidden;
     width: 90%;
     height: 100%;
@@ -53,7 +51,7 @@
 
 
 .nombre{
-    font-size: 100%;
+    font-size: 20px;
     font-weight: bold;
     width: 80%;
     height: 40%;
@@ -62,7 +60,7 @@
 
 }
 
-.profile-photo{
+.profile-photo-contact{
     height: 65px;
     width: 65px;
     border-radius: 100%;
@@ -74,7 +72,7 @@
 padding: 3px;
 display: flex;
 justify-content: space-between;
-width: 25%;
+width: 10%;
 height: 100%;
 gap: 5px;
 overflow: hidden;

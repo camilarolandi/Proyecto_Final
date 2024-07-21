@@ -17,6 +17,14 @@ export const ListaDeMensajes = ({mensajes_info}) => {
 	)
 } 
 
+
+
+
+
+
+
+
+
 /* import React, { useState, useEffect } from 'react';
 import { obtenerContactos } from '../../Fetching/fetching';
 

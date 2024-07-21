@@ -17,16 +17,34 @@
     box-sizing: border-box;
     font-family: "Inter", sans-serif;
 }
+
+
+
 body{
-    background-color: #7e7e7e;
+     background-color: #7e7e7e;
+/*     display: flex;
+    flex-direction: row; */
+  /*   justify-content: center;
+    align-items: center;  */
+  
+
+}
+
+.contact-screen{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center; 
+  /*   border: 5px solid var(--bgcolor-primary); */
+ /*    padding: 10px; */
+   gap:10px;
+    background-color:  var(--bgcolor-primary);
+    height:100%;
+    width: 40%;
 }
 
 
-.contact-screen{
+/* .contact-screen{
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -39,19 +57,25 @@ body{
     height:80%;
     width: 100%;
 }
-.titulos-contactos{
-   /*  padding: 20px 20px 10px 20px; */
-    font-size: 25px;
-    font-weight: bold;
-    color:var(--font-color);
-    width: 30%;
-    }
-    
+. */
 
+ .titulos-contactos{
+    font-size: 18px;
+    font-weight: bold;
+    color:var(--bgcolor-primary);
+   
+    } 
+    
+.string{
+    text-align: center;
+    font-size: 12px;
+    color:var(--font-color);
+
+}
 .contactos-header{
     display: flex;
     flex-direction: column;
-    padding: 10px;
+    padding: 0 10px;
     gap:10px;
     width: 100%;
     }
@@ -59,21 +83,33 @@ body{
 .contacts{
     display: flex;
     flex-direction: column;
-    height: 600px;
+    height: 100%;
     width: 100%;
     background-color: var(--bgcolor-primary);
     padding: 10px;
     gap:15px;
     overflow-y: scroll;
-    margin: 0px 10px 10px 10px;
+    margin: 0px 20px 10px 10px;
+
+}
+
+
+.container-opciones{
+display: flex;
+flex-direction: row;
+width: 100%;
+
 }
 .input-buscar{
     border: 2px;
     width: 100% ;
     height: 30px;
     border-radius: 15px;
-    background-color: #413f40;
+    background-color:var(--bgcolor-secondary);
     text-indent: 10px;
+    font-weight: bold ;
+    color:var(--font-color);
+    
 
 }
 
@@ -101,6 +137,15 @@ body{
     width: 65px;
     height: 65px;
     border-radius: 100%;
+    
+}
+
+.myprofile-photo{
+    width: 65px;
+    height: 65px;
+    border-radius: 100%;
+    margin: 10px;
+    
 }
 
 .contact-cont{
@@ -110,10 +155,11 @@ body{
     justify-content: space-between;
     gap: 15px;
     padding:5px;
-    border-radius:20px;
+  /*   border-radius:20px; */
     background-color:var(--bgcolor-primary);
     width: 100%;
     height:auto;
+    border-bottom: 1px solid var(--bgcolor-secondary) ;
 }
 
 .contacto-mje-nombre{
@@ -162,24 +208,48 @@ font-size: 85%;
 color:var(--font-color);
 }
 
-.icons{
+.icons-header{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    background-color: var(--bgcolor-secondary);
+    width: 100%;
+    height: 80px;
+    border-right:1px solid #5c5c5c ;
 }
- .punto{
+
+.icons-fns-left{
+padding-right: 5px;
+}
+
+
+
+.punto{
     color:var(--font-color);
     background-color: var(--bgcolor-secondary);
     border-radius: 100%;
     padding: 5px;
     text-align: center;
     
- }
+}
 
- .add{
+.add{
     color:var(--font-color);
     padding: 5px;
     background-color: #0f5515;
     border-radius: 100%;
 
- }
+}
+
+
+@media screen and (max-width: 1000px) {
+    .contact-screen{
+        width: 100%;
+    }
+    .titulos-contactos{
+    color:var(--font-color);
+    }
+    .screen-chat{
+        display: none;
+    }
+}
