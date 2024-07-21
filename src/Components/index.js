@@ -6,7 +6,6 @@ import { ListaDeMensajes } from "./Lista-mjes/ListaMjes-1";
 import { ContactoData } from "./Contacto-data/ContactoData";
 import { MyProfile } from "./MyProfile/MyProfile";
 
-<<<<<<< Updated upstream
 export{
     Mensajes,
     Header,
@@ -14,7 +13,3 @@ export{
     ListaDeMensajes,
     ContactoData
 }
-=======
-
-export{Mensajes,Header,NuevoMje,ListaDeMensajes,ContactoData,MyProfile}
->>>>>>> Stashed changes
