@@ -12,6 +12,7 @@ import ReactDOM from 'react-dom/client'
 */
 import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
+import { Contactos } from './Screens/index.js'
 
 /* IMPORTACION AUTOMATICA
 
@@ -27,6 +28,7 @@ Funciona siempre q el archivo desde donde quiero importar este abierto
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <BrowserRouter>
+    
         <App />
     </BrowserRouter>
 
