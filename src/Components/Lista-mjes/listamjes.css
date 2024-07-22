@@ -16,27 +16,34 @@
     gap:20px;
     padding: 10px;
     overflow-y: auto;
-    width: 90%;
-    height: 75%;
+    width: 98%;
+    height: 80%;
     margin: 5px;
     
 
 }
+
 
 .contenedor-chats::-webkit-scrollbar {
     width: 8px; 
 }
 
 .contenedor-chats::-webkit-scrollbar-track {
-    background: #f3c9e4; 
-    border-radius: 4px; 
+    background: var(--bgcolor-primary); 
+    border-radius: 4px;
 }
 
 .contenedor-chats::-webkit-scrollbar-thumb {
-    background-color:#88004F; 
+
+    background-color: var(--font-color);
     border-radius: 4px; 
 }
 
 .contenedor-chats::-webkit-scrollbar-thumb:hover {
-    background: #831c58;
+    background-color:var(--bgcolor-secondary); 
+
+}
+
+.contenedor-chats::-webkit-scrollbar {
+    width: 8px; 
 }

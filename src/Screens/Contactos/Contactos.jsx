@@ -1,36 +1,73 @@
 /* Pantalla de contactos*/
 
 
- import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { MOOK_CONTACTOS } from '../../../Mook'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import "./contactos.css"
+import { Screen } from '../Chat/chatscreen'
+
 
 
 
 export const Contactos = () => {
 
+    const [listaContactos, setListaContactos] = useState([])
+    const [searchString, setSearchString] = useState('')
+
+    useEffect ( () => {
+
+        if (searchString ){
+            const listaContactosFilter = MOOK_CONTACTOS.filter(contacto=> contacto.nombre.toLowerCase().includes(searchString.toLowerCase()) )
+            
+            setListaContactos(listaContactosFilter)
+        }
+        else {
+
+            setListaContactos(MOOK_CONTACTOS)
+            
+        }
+            
+    },
+    [searchString]
+)
+const handleSearch = (e) =>{
+    console.log(e.target.value)
+    setSearchString(e.target.value)
+}
+
     return (
     
     <>
             <div className ='contact-screen'>
-                <div className='contactos-header'>
-                    <div className='icons'>
-                        <i className=" punto bi bi-three-dots"></i>
+                
+                <header className='icons-header'>
+                <img className='myprofile-photo' src='https://www.creartuavatar.com/images/f17.svg'/>
+                {/* 
+                    <Link to= {"/myprofile/"}><img className='myprofile-photo' src='https://www.creartuavatar.com/images/f17.svg'/>
+                    </Link> */} 
                         <div className='icons-fns-left'>
                         <i className=" punto bi bi-image-fill"></i>
                         <i className=" add bi bi-plus-lg"></i>
                         </div>
-                    </div>
-                    <span className='titulos-contactos'>Chats</span>
-                    <input className='input-buscar' type="text" placeholder='Buscar' />
 
+                    </header>                
+                    <div className='contactos-header'>
+                    <span className='titulos-contactos'>Chats</span>
+                    <input 
+                    className='input-buscar' 
+                    type="text" 
+                    placeholder='Buscar' 
+                    onChange={handleSearch} 
+                    value={searchString} />
+                    <span className='string'>
+                    {listaContactos.length === 0 && searchString !== '' && (
+                    <h2>No se encuentran resultados</h2>)}
+                    </span>
                 </div>
                 <div className='contacts'>
-                    {MOOK_CONTACTOS.map(contacto=>{
-
+                    {listaContactos.map(contacto=>{
                         return(
-                    
                             <div className= "contact-cont" key = {contacto.id}>
                                 <div className='contacto-data'>
                                     <Link className='photo-link' to = {"/screen/" + contacto.id}><img className='photos' src= {contacto.thumbnail} alt="profile-photos" /></Link>
@@ -53,7 +90,7 @@ export const Contactos = () => {
                 </div> 
 
         
-                <div className='container-opciones'>
+             {/*    <div className='container-opciones'>
                                     <div className='icon-mje-buscar'>
                                     <i class="bi bi-circle-square"></i>
                                         <span>Novedades</span>
@@ -75,11 +112,10 @@ export const Contactos = () => {
                                         <span>Configuracion</span>
                                     </div>
                                     
-                                </div>
-                
+                                </div> */}
+                <div className='inferior'>HOLA</div>
+            </div>  
            
-            </div>
-                
         </>
     )
 }

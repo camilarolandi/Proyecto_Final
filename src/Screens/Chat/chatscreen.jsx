@@ -5,12 +5,13 @@ import { MOOK_CONTACTOS } from '../../../Mook'
 import { useParams } from 'react-router-dom'
 import { Header, ListaDeMensajes, NuevoMje } from '../../Components'
 import "./screenchat.css"
+import { Contactos } from '../Contactos/Contactos'
 
 	
 	export const Screen = () => {
 
 	const { contactoID } = useParams()
-    
+	
 	const contacto = MOOK_CONTACTOS.find (contacto => contacto.id === Number(contactoID))
 	const {mensajes} = contacto
 	const [mensajes_data, setMensajesInfo]= useState(mensajes)
@@ -30,12 +31,17 @@ import "./screenchat.css"
 }
 
 	return (
-		<div className='screen-chat'>
+		<div className='contact-screen-container'>
+		 <Contactos/>  
+			<div className='screen-chat'>
+
 			<Header/>
 			<ListaDeMensajes mensajes_info = {mensajes_data} />
 			<NuevoMje enviarMensaje={newMensaje}/>
 			
 		</div>
+		</div>
+		
 		)
 	}
 

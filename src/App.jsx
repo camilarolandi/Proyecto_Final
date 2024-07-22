@@ -14,7 +14,7 @@ return(
 
     <Routes>
         <Route path = "/" element = {<Contactos/>}/>
-        <Route path = "/mensajes/" element = {<Mensajes/>}/> 
+        <Route path = "/" element = {<Screen/>}/>
 		<Route path = "/screen/:contactoID" element = {<Screen/>}/> 
 		<Route path = "/header/" element = {<Header/>}/> 
         <Route path= "/contactos/:contactoID" element={<Contactos/>} />

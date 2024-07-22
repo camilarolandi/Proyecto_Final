@@ -19,31 +19,35 @@
 }
 body{
     background-color: #7e7e7e;
-    display: flex;
+    /* display: flex;
     justify-content: center;
     align-items: center;
-    margin: 20px;
+    margin: 20px; */
 }
 
+.contact-screen-container{
+    max-width: 2000px;
+    height: 633px;
+    display: flex;
+    flex-direction: row;
 
+}
 .contact-screen{
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    border: 5px solid var(--bgcolor-primary);
-    border-radius: 20px;
-    padding: 10px;
+   
     gap:10px;
     background-color:  var(--bgcolor-primary);
-    height:80%;
-    width: 100%;
+    height:100%;
+    width: 30%;
 }
 .titulos-contactos{
    /*  padding: 20px 20px 10px 20px; */
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold;
-    color:var(--font-color);
+    color:var(--bgcolor-primary);
     width: 30%;
     }
     
@@ -51,7 +55,7 @@ body{
 .contactos-header{
     display: flex;
     flex-direction: column;
-    padding: 10px;
+    padding: 0 10px;
     gap:10px;
     width: 100%;
     }
@@ -60,12 +64,12 @@ body{
     display: flex;
     flex-direction: column;
     height: 600px;
-    width: 100%;
+    width: 95%;
     background-color: var(--bgcolor-primary);
     padding: 10px;
     gap:15px;
     overflow-y: scroll;
-    margin: 0px 10px 10px 10px;
+ 
 }
 .input-buscar{
     border: 2px;
@@ -74,9 +78,24 @@ body{
     border-radius: 15px;
     background-color: #413f40;
     text-indent: 10px;
-
 }
 
+.myprofile-photo{
+border-radius: 100%;
+height: 50px;
+width:50px;
+margin-left: 20px;
+}
+
+.icons-header{
+    background-color: var(--bgcolor-secondary);
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 85px;
+    align-items: center;
+    justify-content: space-between;
+}
 .contacts::-webkit-scrollbar {
     width: 8px; 
 }
@@ -98,8 +117,8 @@ body{
 }
 
 .photos{
-    width: 65px;
-    height: 65px;
+    width: 50px;
+    height: 50px;
     border-radius: 100%;
 }
 
@@ -110,7 +129,7 @@ body{
     justify-content: space-between;
     gap: 15px;
     padding:5px;
-    border-radius:20px;
+    border-bottom: 1px solid  var(--bgcolor-secondary);
     background-color:var(--bgcolor-primary);
     width: 100%;
     height:auto;
@@ -120,27 +139,26 @@ body{
     display: flex;
     flex-direction: column;
     border-radius: 20px;
-    gap: 5px;
+    gap: 3px;
     height: auto;
     width: 100%;
     padding: 5px;
-
-
 }
 .contacto-data{
 display: flex;
 flex-direction: row;
 justify-content: space-between;
 align-items: center;
-padding: 5px;
 gap: 10px;
 height: 80%;
 width: 80%;
 }
 
-
+.icons-fns-left{
+    padding: 15px;
+}
 .mensaje-cont{
-font-size: 90%;
+font-size: 12px;
 padding: 3px;
 color: var(--font-color);
 }
@@ -149,16 +167,18 @@ color: var(--font-color);
 padding: 3px;
 width: 100%;
 height: 100%;
-font-size: 100%;
+font-size: 14px;
 border-radius:20px;
 font-weight: bold;
 color:var(--font-color);
 }
 
-
+.string{
+    color:var(--font-color);
+}
 .hour{
 padding: 5px;
-font-size: 85%;
+font-size: 10px;
 color:var(--font-color);
 }
 
@@ -175,7 +195,12 @@ color:var(--font-color);
     text-align: center;
     
  }
-
+.inferior{
+    width: 100%;
+    height: 84px;
+    background-color: var(--bgcolor-secondary);
+    border-right: 1px solid #808080;
+}
  .add{
     color:var(--font-color);
     padding: 5px;
