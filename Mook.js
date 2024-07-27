@@ -68,7 +68,7 @@ export const MOOK_CONTACTOS =[
                         id: '1'
                     },
                     {
-                        author: 'Pame',
+                        author: 'Pamela',
                         text: 'Hola, todo bien? ',
                         estado: 'Visto',
                         day: 'Hoy',
@@ -92,7 +92,7 @@ export const MOOK_CONTACTOS =[
                         id: '4'
                     },
                     {
-                        author: 'Pame',
+                        author: 'Pamela',
                         text: 'Que haces? ',
                         estado: 'Visto',
                         day: 'Hoy',
@@ -105,7 +105,7 @@ export const MOOK_CONTACTOS =[
 },
 {
     nombre:  "Rocky",
-    apellido: "Rios" ,
+    apellido: "Pasos" ,
     id: 3,
     telefono: '3584673456',
     estado:"Trabajando",

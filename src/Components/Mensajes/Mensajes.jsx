@@ -13,7 +13,7 @@ export const Mensajes = ({mensaje}) => {
                 <span className='author'>{author} </span>
                 <p className='mensaje-texto'>{text}</p>
                 <div className='contenedor-inferior'>
-                    <span className='day-hour'>{day} {hour}</span>
+                    <span className='day-hour'> {author === "Yo" && `${day} ${hour}`}</span>
                     <div className='estado-cont'>
                         <span > {estado}</span>
                         <span > {estado === "Visto" && <i class="bi bi-check2-all"></i>}{estado === "Entregado" && <i class="bi bi-check2"></i>}</span>

@@ -1,13 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Jacquard+24&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 
 :root {
     --bgcolor-primary: #000000;
     --font-color:#ffffff;
     --border-color: #000000;
     --bgcolor-secondary: #1d1d1d;
-    --bgcolor-chat-izq: #1d1d1d;
+    --bgcolor-chat-izq: #1d1d1d;;
     --bgcolor-chat-der: #0f5515;
+    --bgcolor-primary-light: rgb(255, 255, 255);
+    --font-color-light:#000000;
+    --bgcolor-secondary-light: #F0F2F5;
 }
 
 
@@ -19,10 +22,6 @@
 }
 body{
     background-color: #7e7e7e;
-    /* display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px; */
 }
 
 .contact-screen-container{
@@ -30,18 +29,37 @@ body{
     height: 633px;
     display: flex;
     flex-direction: row;
-
 }
+
 .contact-screen{
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: center;
-   
     gap:10px;
     background-color:  var(--bgcolor-primary);
     height:100%;
     width: 30%;
+    position: relative;
+
+}
+
+.photo-profile-cont{
+    background-color:var(--bgcolor-secondary); 
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 65px;
+
+}
+.icons-header{
+    background-color: var(--bgcolor-secondary);
+    display: none;
+    flex-direction: row;
+    width: 100%;
+    height: 58px;
+    align-items: center;
+    justify-content: space-between;
 }
 .titulos-contactos{
    /*  padding: 20px 20px 10px 20px; */
@@ -55,11 +73,13 @@ body{
 .contactos-header{
     display: flex;
     flex-direction: column;
-    padding: 0 10px;
+    padding: 0 10px; 
     gap:10px;
     width: 100%;
+  
     }
-    
+
+
 .contacts{
     display: flex;
     flex-direction: column;
@@ -69,10 +89,10 @@ body{
     padding: 10px;
     gap:15px;
     overflow-y: scroll;
- 
+
 }
 .input-buscar{
-    border: 2px;
+    border: 1px solid black;
     width: 100% ;
     height: 30px;
     border-radius: 15px;
@@ -80,22 +100,21 @@ body{
     text-indent: 10px;
 }
 
+.chat-options{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+
+}
 .myprofile-photo{
 border-radius: 100%;
 height: 50px;
 width:50px;
-margin-left: 20px;
+margin: 5px 20px;
 }
 
-.icons-header{
-    background-color: var(--bgcolor-secondary);
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 85px;
-    align-items: center;
-    justify-content: space-between;
-}
+
 .contacts::-webkit-scrollbar {
     width: 8px; 
 }
@@ -107,7 +126,7 @@ margin-left: 20px;
 
 .contacts::-webkit-scrollbar-thumb {
 
-    background-color: var(--font-color);
+    background-color: var(--bgcolor-secondary-light);
     border-radius: 4px; 
 }
 
@@ -130,7 +149,8 @@ margin-left: 20px;
     gap: 15px;
     padding:5px;
     border-bottom: 1px solid  var(--bgcolor-secondary);
-    background-color:var(--bgcolor-primary);
+    /* background-color:var(--bgcolor-primary); */
+    background-color: transparent;
     width: 100%;
     height:auto;
 }
@@ -154,14 +174,29 @@ height: 80%;
 width: 80%;
 }
 
-.icons-fns-left{
+.icons-fns-left-1{
     padding: 15px;
+    display: flex;
+    gap:15px;
 }
+
+.icons-fns-left-2{
+    padding: 10px;
+    gap:25px;
+}
+
+.icons-left{
+    color: var(--font-color);
+    font-weight: bold;
+}
+
 .mensaje-cont{
 font-size: 12px;
 padding: 3px;
 color: var(--font-color);
 }
+
+
 
 .nombre-cont{
 padding: 3px;
@@ -175,6 +210,7 @@ color:var(--font-color);
 
 .string{
     color:var(--font-color);
+    text-align: center;
 }
 .hour{
 padding: 5px;
@@ -187,24 +223,97 @@ color:var(--font-color);
     flex-direction: row;
     justify-content: space-between;
 }
- .punto{
+.punto{
     color:var(--font-color);
     background-color: var(--bgcolor-secondary);
     border-radius: 100%;
     padding: 5px;
     text-align: center;
     
- }
+}
+
+.p1{
+    margin-left:10px;
+
+}
+
+.opt{
+    border-radius: 15px;
+    background-color: #413f40;
+    padding: 10px;
+}
+
 .inferior{
     width: 100%;
     height: 84px;
     background-color: var(--bgcolor-secondary);
-    border-right: 1px solid #808080;
+    
 }
- .add{
+
+.add{
     color:var(--font-color);
     padding: 5px;
     background-color: #0f5515;
     border-radius: 100%;
 
- }
+}
+
+.modo-claro{
+
+    background-color:  var(--bgcolor-primary-light);
+    color: var(--font-color-light);
+  
+}
+
+.modo-claro-2{
+    background-color:  var(--bgcolor-secondary-light);
+}
+
+/* @media (max-width: 930px) {
+    .nombre-cont {
+        font-size: 12px;
+    }
+    .mensaje-cont{
+        font-size: 10px ;
+    }
+}  */
+
+@media (max-width: 920px) {
+
+    .contact-screen{
+    width: 100%;
+    }
+    .titulos-contactos{
+        display: none;
+        font-size: 24px;
+        }
+        .icons-fns-left-1{
+            display: none;
+        }
+        .icons-header{
+            background-color: var(--bgcolor-primary);
+            
+        }
+        .myprofile-photo{
+            display: none;
+            }
+            .icons-fns-left-2{
+                display: flex;
+            }
+            .punto-1{
+                display: none;
+            }
+}
+
+
+@media (min-width: 920px) {
+    .icons-fns-left-2{
+        display: none;
+    }
+
+    .p1{
+        display: none;
+    }
+
+
+    }

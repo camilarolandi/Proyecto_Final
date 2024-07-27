@@ -26,13 +26,15 @@
     flex-direction: column;
     justify-content: start;
     border: 3px solid var(--border-color);
-    border-radius: 20px;
     padding: 10px;
     gap:10px;
     background-color:var(--bgcolor-primary);
-    height: 600px;
-    width: 400px;
+    height: 100%;
+    width:30%;
+    position:absolute;
+    
 }
+
 .header-container{
     display: flex;
     justify-content: space-between;
@@ -150,11 +152,10 @@
 .funciones{
     display: flex;
     flex-direction: column;
-    
     background-color:var(--bgcolor-secondary);
     border: 3px solid transparent;
     border-radius: 10px;
-    padding: 10px ;
+   /*  padding: 10px ; */
     gap:5px;
     align-items: center;
     justify-content: space-between;

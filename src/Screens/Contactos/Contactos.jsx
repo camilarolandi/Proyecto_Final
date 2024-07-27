@@ -3,22 +3,24 @@
 
 import React, { useEffect, useState } from 'react'
 import { MOOK_CONTACTOS } from '../../../Mook'
-import { Link, useParams } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import "./contactos.css"
-import { Screen } from '../Chat/chatscreen'
+import { MyProfile } from '../../Components/MyProfile/MyProfile'
 
 
 
-
-export const Contactos = () => {
+export const Contactos = ({ContactSelect}) => {
 
     const [listaContactos, setListaContactos] = useState([])
     const [searchString, setSearchString] = useState('')
+    const [modoChange, setModoChange] = useState(false)
+    const [showMyProfile, setShowMyProfile] = useState(false)
 
+    
     useEffect ( () => {
 
         if (searchString ){
-            const listaContactosFilter = MOOK_CONTACTOS.filter(contacto=> contacto.nombre.toLowerCase().includes(searchString.toLowerCase()) )
+            const listaContactosFilter = MOOK_CONTACTOS.filter(contacto=> contacto.nombre.toLowerCase().includes(searchString.toLowerCase()) || contacto.apellido.toLowerCase().includes(searchString.toLowerCase()))
             
             setListaContactos(listaContactosFilter)
         }
@@ -31,49 +33,94 @@ export const Contactos = () => {
     },
     [searchString]
 )
+
 const handleSearch = (e) =>{
     console.log(e.target.value)
     setSearchString(e.target.value)
 }
+const modosChange = () => {
+    setModoChange(modoClaro => !modoClaro)
+}
+
+const showProfile = () => {
+    setShowMyProfile(true)
+}
+
+const hideProfile = () => {
+    setShowMyProfile(false)
+}
 
     return (
-    
-    <>
-            <div className ='contact-screen'>
+
+            <div className ={`contact-screen ${modoChange ? 'modo-claro' : ''}`} >
                 
-                <header className='icons-header'>
-                <img className='myprofile-photo' src='https://www.creartuavatar.com/images/f17.svg'/>
-                {/* 
-                    <Link to= {"/myprofile/"}><img className='myprofile-photo' src='https://www.creartuavatar.com/images/f17.svg'/>
-                    </Link> */} 
-                        <div className='icons-fns-left'>
-                        <i className=" punto bi bi-image-fill"></i>
+                <div className='photo-profile-cont'>
+                    <img className='myprofile-photo' 
+                    src='https://www.creartuavatar.com/images/f17.svg'
+                    onClick={showProfile}
+                    />
+                    {showMyProfile && <MyProfile onClose={hideProfile}/>}
+
+                    <div className='icons-fns-left-1'>
+                        <i className={`icons-left bi bi-people ${modoChange ? 'modo-claro' : ''}`}></i>
+                        <i className={`icons-left bi bi-disc ${modoChange ? 'modo-claro' : ''}`}></i>
+                        <i className={`icons-left bi bi-chat-quote${modoChange ? 'modo-claro' : ''}`}></i>
+                        <i className={`icons-left bi bi-chat-right-dots ${modoChange ? 'modo-claro' : ''}`}></i>
+                        <i className={`icons-left bi bi-three-dots-vertical${modoChange ? 'modo-claro' : ''}`}></i>
+                        </div>
+                        <div className='icons-fns-left-2'>
+                        <i className=" punto bi bi-camera"></i>
                         <i className=" add bi bi-plus-lg"></i>
+                        
+                        </div>
+                </div>
+                
+                <header className= {`icons-header ${ modoChange ? 'modo-claro-2' : ''}`} >
+
+                    <i className="punto p1 bi bi-three-dots-vertical"></i>
+                    <button className="boton-alternar" onClick={modosChange}>
+                <i className={`icons-left bi bi-power ${modoChange ? 'modo-claro' : ''}`}></i>
+                </button>
+                        <div className='icons-fns-left-2'>
+                        <i className=" punto bi bi-camera"></i>
+                        <i className=" add bi bi-plus-lg"></i>
+                        
+                        </div>
+                        <div className='icons-fns-left-1'>
+                        <i className={`icons-left bi bi-people ${modoChange ? 'modo-claro' : ''}`}></i>
+                        <i className={`icons-left bi bi-disc ${modoChange ? 'modo-claro' : ''}`}></i>
+                        <i className={`icons-left bi bi-chat-quote${modoChange ? 'modo-claro' : ''}`}></i>
+                        <i className={`icons-left bi bi-chat-right-dots ${modoChange ? 'modo-claro' : ''}`}></i>
+                        <i className={`icons-left bi bi-three-dots-vertical${modoChange ? 'modo-claro' : ''}`}></i>
                         </div>
 
                     </header>                
                     <div className='contactos-header'>
                     <span className='titulos-contactos'>Chats</span>
                     <input 
-                    className='input-buscar' 
+                    className={`input-buscar ${modoChange ? 'modo-claro-2' : ''}`} 
                     type="text" 
-                    placeholder='Buscar' 
+                    placeholder='Buscar contacto' 
                     onChange={handleSearch} 
                     value={searchString} />
-                    <span className='string'>
                     {listaContactos.length === 0 && searchString !== '' && (
-                    <h2>No se encuentran resultados</h2>)}
-                    </span>
+                    <span className= {`string ${modoChange ? 'modo-claro' : ''}`} >No se encuentran resultados</span>)}
+                    <div className='chat-options'>
+                        <span className='opt my-data'>Todos</span>
+                        <span className='opt my-data'>No leìdos</span>
+                        <span className='opt my-data'>Favoritos</span>
+                        <span className='opt my-data'>Grupos</span>
+                    </div>
                 </div>
-                <div className='contacts'>
+                <div className={`contacts ${modoChange ? 'modo-claro' : ''}`}>
                     {listaContactos.map(contacto=>{
                         return(
-                            <div className= "contact-cont" key = {contacto.id}>
+                            <div className= "contact-cont" /* {`contact-cont ${modoChange ? 'modo-claro' : ''}`}  key = {contacto.id} */>
                                 <div className='contacto-data'>
-                                    <Link className='photo-link' to = {"/screen/" + contacto.id}><img className='photos' src= {contacto.thumbnail} alt="profile-photos" /></Link>
+                                    <Link className='photo-link' to = {"/screen/" + contacto.id}><img className='photos' src= {contacto.thumbnail} alt="profile-photos" onClick={ContactSelect}/></Link>
                                     <div className='contacto-mje-nombre'>
-                                        <span className='nombre-cont'>{contacto.nombre} {contacto.apellido}</span>
-                                        <p className='mensaje-cont'> {contacto.mensajes[0].text}</p>
+                                        <span className={`nombre-cont ${modoChange ? 'modo-claro' : ''}`}>{contacto.nombre} {contacto.apellido}</span>
+                                        <p className={`mensaje-cont ${modoChange ? 'modo-claro' : ''}`}> {contacto.mensajes[0].text}</p>
                                     </div>
                                 </div>
                                     
@@ -85,6 +132,7 @@ const handleSearch = (e) =>{
                             </div>
                 
                         )
+
 
                     })}
                 </div> 
@@ -113,10 +161,9 @@ const handleSearch = (e) =>{
                                     </div>
                                     
                                 </div> */}
-                <div className='inferior'>HOLA</div>
+                
             </div>  
-           
-        </>
+       
     )
 }
 
@@ -212,3 +259,29 @@ export const Contactos = () => {
 }
  */
 
+/* PROBAR */
+/* import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import './App.css'; // Archivo CSS donde definimos los estilos
+
+const ContactoItem = ({ contacto }) => {
+  const [claseComponente, setClaseComponente] = useState('photo-link');
+
+  const cambiarClaseComponente = () => {
+    const mediaQuery = window.matchMedia('(min-width: 768px)');
+    if (mediaQuery.matches) {
+      setClaseComponente('photo-link media-query-active');
+    } else {
+      setClaseComponente('photo-link');
+    }
+  };
+
+  return (
+    <Link className={claseComponente} to={"/screen/" + contacto.id} onClick={cambiarClaseComponente}>
+      <img className='photos' src={contacto.thumbnail} alt="profile-photos" />
+    </Link>
+  );
+};
+
+export default ContactoItem;
+ */

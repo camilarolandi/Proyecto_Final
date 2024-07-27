@@ -2,6 +2,17 @@
 
 
 
+#root {
+    max-width: 2000px;
+    height: 633px;
+   /*  position: relative; */
+  
+  /*   display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; */
+}
+
 :root {
     --bgcolor-primary: #000000;
     --font-color:#ffffff;
@@ -16,25 +27,34 @@
     font-family: "Inter", sans-serif; 
 }
 
-
+.contact-screen-container{
+    display: flex;
+    flex-direction: row;
+    
+}
 
 
 .screen-chat{
-
     height:100%;
     width: 70%;
     background-image:  url(https://cloudfront-eu-central-1.images.arcpublishing.com/diarioas/7L3CG752LVMWBPX75F4W3Y7QGI.jpg); 
-     /* background-color: #a03573 */; 
-  ;
     display: flex;
     flex-direction: column;
-/*     gap:10px; */
     overflow: hidden;
-    justify-content: center;
+    justify-content:center;
     align-items: center;
+    position:relative;
+
+   
     
 
 }
 
+
+/* @media (max-width: 920px) {
+.screen-chat{
+display: none;
+} 
+} */
 
 

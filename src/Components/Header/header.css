@@ -24,7 +24,7 @@
 .header{
     background-color:var(--bgcolor-secondary);
     border-bottom: 3px solid var(--bgcolor-secondary);
-    height: 60px;
+    height: 65px;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -33,6 +33,7 @@
     overflow: hidden;
     margin-bottom: 10px;
     border-left: 1px solid #808080;
+    position:relative;
 }
 
 .header .flecha{
@@ -79,6 +80,7 @@ height: 100%;
 gap: 20px;
 overflow: hidden;
 align-items: center;
+padding:5px;
 
 }
 
@@ -106,3 +108,14 @@ align-items: center;
     color:var(--font-color);
     font-size: 12px;
 }
+
+
+
+@media (min-width: 920px) {
+
+    .header .flecha{
+        display: none;
+    }
+
+    }
+

@@ -1,0 +1,38 @@
+
+
+
+:root {
+    --bgcolor-primary: #000000;
+    --font-color:#ffffff;
+    --border-color: #000000;
+    --bgcolor-secondary: #1d1d1d;
+    --bgcolor-welcome: #777777;
+
+}
+
+ .main-layout{
+    display:flex;
+    flex-direction:row;
+    max-width: 2000px; 
+    background-color: var(--bgcolor-welcome);
+    height: 633px;
+    justify-content: space-between;
+    position: relative;
+    
+     
+}
+
+.welcome-screen{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    justify-content: center;
+    align-items: center;
+    }
+   
+
+    @media (max-width: 920px) {
+        .main-layout{
+       flex-direction:column;
+        } 
+        }

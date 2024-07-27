@@ -69,8 +69,8 @@
 
 
 .chats {
-    padding: 5px 10px 5px 5px;
-    background-color: var(--bgcolor-chat-izq);
+    padding: 5px 10px;
+  background-color:var(--bgcolor-chat-izq);
     display: flex;
     flex-direction: column;
     justify-content: space-between;

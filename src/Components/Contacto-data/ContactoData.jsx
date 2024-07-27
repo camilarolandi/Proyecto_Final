@@ -5,7 +5,8 @@ import { Link, useParams } from 'react-router-dom'
 import "./contactodata.css"
 
 export const ContactoData = () => {
-        const {contactoID } = useParams();
+        const {contactoID } = useParams()
+
             
             const contacto = MOOK_CONTACTOS.find(contacto => contacto.id === Number(contactoID));
             return (
