@@ -109,22 +109,6 @@ const hideProfile = () => {
                         <span className='fav opt my-data'>Favoritos</span>
                         <span className='opt my-data'>Grupos</span>
                     </div>
-                    <span className='titulos-contactos'>Chats</span>
-                    <input 
-                    className={`input-buscar ${modoChange ? 'modo-claro-2' : ''}`} 
-                    type="text" 
-                    placeholder='Buscar contacto' 
-                    onChange={handleSearch} 
-                    value={searchString} />
-                    {listaContactos.length === 0 && searchString !== '' && (
-                    < span className= {`string ${modoChange ? 'modo-claro' : ''}`} >No se encuentran resultados</span>)}
-
-                    <div className='chat-options'>
-                        <span className='opt my-data'>Todos</span>
-                        <span className='opt my-data'>No leidos</span>
-                        <span className='fav opt my-data'>Favoritos</span>
-                        <span className='opt my-data'>Grupos</span>
-                    </div>
                 </div>
                 <div className={`contacts ${modoChange ? 'modo-claro' : ''}`}>
                     {listaContactos.map(contacto=>{
