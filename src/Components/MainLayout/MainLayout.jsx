@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-
 import { Contactos, Screen } from '../../Screens'
-import "./mainlayout.css" 
 import { Route, Routes, useParams} from 'react-router-dom'
 import { ContactoData } from '../Contacto-data/ContactoData'
+import "./mainlayout.css"
+import '../../styles.css'
 
 
 
@@ -14,24 +14,21 @@ import { ContactoData } from '../Contacto-data/ContactoData'
 		const hideWelcome = () => {
 			setShowWelcome(false)
 		}
-			
+		
+
+
 		return (
 		<div className="main-layout">
 			<Contactos ContactSelect={hideWelcome}/>  
-			<Routes>
-     {/*    <Route path="/contactodata/:contactoID" element={<ContactoData />} /> */}
-        <Route path="/screen/:contactoID" element={<Screen />} />
-        
-		<Route
-          path="/contactodata/:contactoID/screen"
-          element={
-            <>
-              <ContactoData />
-              <Screen />
-            </>
-          }
-        />
-      </Routes> 
+			<Routes>	
+				<Route path="/screen/:contactoID" element={<Screen />} />
+				<Route path="/contactodata/:contactoID/screen" element={
+					<>
+						<ContactoData />
+						<Screen />
+					</>
+				}/>
+			</Routes> 
 
 		{showWelcome && (
 			<div className="welcome-screen">
@@ -39,12 +36,16 @@ import { ContactoData } from '../Contacto-data/ContactoData'
 				<p className='texto-welcome'>Seleccione un contacto para comenzar a chatear</p>
 			</div> )}
 		</div>
-
-		
-		
 	)
-
 	}
 
 
-	
+	/* const [contactComponent]= document.getElementsByClassName("contact-screen")
+		const [chatsComponent]= document.getElementsByClassName("screen-chat")
+		
+		if(contactComponent && window.innerWidth < 590){
+			contactComponent.style.display= "none"
+		}
+		if(chatsComponent && window.innerWidth < 590){
+			chatsComponent.style.display= "flex"
+		} */

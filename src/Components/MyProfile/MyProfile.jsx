@@ -1,6 +1,7 @@
 /* My profile recibe la prop onClose que es la fn hideprofile la cual oculta el perfil */
 import React from 'react'
 import "./myprofile.css"
+import '../../styles.css'
 
 export const MyProfile = ({onClose}) => {
 
@@ -25,7 +26,7 @@ export const MyProfile = ({onClose}) => {
             </div>
         </div>
 
-        <p className='profile-mje'>Este no es tu nombre de usuario o PIN. Este nombre sera visible para todos tus contactos</p>
+       <p className='profile-mje'>Este no es tu nombre de usuario o PIN. Este nombre sera visible para todos tus contactos</p>
         
         <div className='container-myProfile'>
             <span className='my-data'>Info.</span>
@@ -33,7 +34,7 @@ export const MyProfile = ({onClose}) => {
                 <span className='my-data'>Amo el frio</span>
                 <i className="my-data bi bi-pencil"></i>
             </div>
-        </div>
+        </div> 
     </div>
 )
 }

@@ -1,26 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Jacquard+24&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-
-
 :root {
     --bgcolor-primary: #000000;
-    --font-color:#ffffff;
+    --font-color: #ffffff;
     --border-color: #000000;
     --bgcolor-secondary: #1d1d1d;
-    --bgcolor-chat-izq: #1d1d1d;
+    --bgcolor-chat-izq: #1d1d1d;;
     --bgcolor-chat-der: #0f5515;
-
+    --bgcolor-primary-light: rgb(255, 255, 255);
+    --font-color-light: #000000;
+    --bgcolor-secondary-light: #f0f2f5;
+    --bgcolor-input: #808080;
 }
-
-*{ 
-    padding: 0px;
-    margin: 0px;
-    box-sizing: border-box;
-    font-family: "Inter", sans-serif;
-
-}
-
-
 .contenedor-chats{
     display:flex;
     flex-direction: column;
@@ -70,7 +59,7 @@
 
 .chats {
     padding: 5px 10px;
-  background-color:var(--bgcolor-chat-izq);
+    background-color:var(--bgcolor-chat-izq);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -102,7 +91,7 @@
 
 .author{
     color:var(--font-color);
-    font-size: 90% ;
+    font-size: 14px ;
     font-weight: bold;
     width: 100%;
     height: 20%;
@@ -133,4 +122,15 @@
     width: 100%;
     color:var(--font-color);
 
+}
+
+
+@media (max-width: 700px) {
+
+    .chats{
+    width: 60%;
+    }
+    .author{
+        font-size: 12px;
+    }
 }

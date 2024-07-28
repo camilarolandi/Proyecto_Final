@@ -1,25 +1,27 @@
-
-
-
 :root {
-    --bgcolor-primary: #000000;
-    --font-color:#ffffff;
-    --border-color: #000000;
-    --bgcolor-secondary: #1d1d1d;
-    --bgcolor-welcome: #777777;
-
+  --bgcolor-primary: #000000;
+  --font-color: #ffffff;
+  --border-color: #000000;
+  --bgcolor-secondary: #1d1d1d;
+  --bgcolor-chat-izq: #1d1d1d;;
+  --bgcolor-chat-der: #0f5515;
+  --bgcolor-primary-light: rgb(255, 255, 255);
+  --font-color-light: #000000;
+  --bgcolor-secondary-light: #f0f2f5;
+  --bgcolor-input: #808080;
 }
 
- .main-layout{
+.main-layout{
     display:flex;
     flex-direction:row;
-    max-width: 2000px; 
+    max-width: 100wh; 
     background-color: var(--bgcolor-welcome);
-    height: 633px;
+   /*  height: 633px; */
+    height: 100vh;
     justify-content: space-between;
-    position: relative;
-    
-     
+  /*   position: relative; */
+
+
 }
 
 .welcome-screen{
@@ -30,9 +32,9 @@
     align-items: center;
     }
    
-
-    @media (max-width: 920px) {
+/* 
+  @media (max-width: 590px) {
         .main-layout{
        flex-direction:column;
         } 
-        }
+        }   */

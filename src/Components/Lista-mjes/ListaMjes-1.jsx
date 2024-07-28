@@ -5,6 +5,7 @@ RECIBE EL ARRAY DE MENSAJES */
 import React from 'react'
 import { Mensajes } from '../Mensajes/Mensajes'
 import "./listamjes.css"
+import '../../styles.css'
 
 
 export const ListaDeMensajes = ({mensajes_info}) => {

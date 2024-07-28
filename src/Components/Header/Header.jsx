@@ -1,10 +1,9 @@
 
 import React, { useState } from 'react'
-import "./header.css"
 import {MOOK_CONTACTOS } from '../../../Mook';
 import { Link, useParams } from 'react-router-dom';
-
-
+import "./header.css"
+import '../../styles.css'
 
 
 export const Header = () => {		
@@ -28,8 +27,9 @@ const {contactoID } = useParams()
 					
 				</div>
 				<div className='btns-header'>
-					<button className='btn' ><i class="bi bi-telephone"></i></button>
-					<button className='btn' ><i class="bi bi-camera-video"></i></button>
+					<i class="btn-header bi bi-telephone"></i>
+					<i class="btn-header bi bi-camera-video"></i>
+					<i className= "btn-header bi bi-three-dots-vertical" ></i>
 				</div>
 			</div>
 			</>

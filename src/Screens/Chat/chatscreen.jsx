@@ -5,17 +5,16 @@ import { MOOK_CONTACTOS } from '../../../Mook'
 import {  Route, Routes, useParams } from 'react-router-dom'
 import { ContactoData, Header, ListaDeMensajes, NuevoMje } from '../../Components'
 import "./screenchat.css"
+import '../../styles.css'
 import { Contactos } from '../Contactos/Contactos'
 
 	
-	export const Screen = () => {
+	export const Screen = ( ) => {
 
 	const { contactoID } = useParams()
-	
 	const contacto = MOOK_CONTACTOS.find (contacto => contacto.id === Number(contactoID))
 	const {mensajes} = contacto
 	const [mensajes_data, setMensajesInfo]= useState(mensajes)
-	
 	
 	useEffect(()=> {
 
@@ -37,7 +36,6 @@ import { Contactos } from '../Contactos/Contactos'
 		setMensajesInfo([...mensajes_data,mje_nvo])
 	
 }
-
 
 	 return (
 		<>

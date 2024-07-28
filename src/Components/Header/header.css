@@ -1,42 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Jacquard+24&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
-
-
-
-
 :root {
     --bgcolor-primary: #000000;
-    --font-color:#ffffff;
+    --font-color: #ffffff;
     --border-color: #000000;
     --bgcolor-secondary: #1d1d1d;
+    --bgcolor-chat-izq: #1d1d1d;;
+    --bgcolor-chat-der: #0f5515;
+    --bgcolor-primary-light: rgb(255, 255, 255);
+    --font-color-light: #000000;
+    --bgcolor-secondary-light: #f0f2f5;
+    --bgcolor-input: #808080;
 }
-
-
-*{ 
-    padding: 0px;
-    margin: 0px;
-    box-sizing: border-box;
-    font-family: "Inter", sans-serif;
-} 
-
-
-
 .header{
     background-color:var(--bgcolor-secondary);
-    border-bottom: 3px solid var(--bgcolor-secondary);
-    height: 65px;
+    height: 10%;
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 5px 10px ;
     align-items: center;
     overflow: hidden;
-    margin-bottom: 10px;
-    border-left: 1px solid #808080;
     position:relative;
+    padding: 0px 10px;
+    
 }
 
-.header .flecha{
+.flecha{
     color: var(--font-color);
     font-weight: bold;
 
@@ -45,12 +32,13 @@
 .contenedor-contacto{
     display: flex;
     justify-content: start;
-    padding: 10px 5px 10px 15px;
+    /*    padding: 10px 5px 10px 15px; */
     align-items: center;
     gap:20px;
     overflow: hidden;
-    width: 90%;
+    width: 80%;
     height: 100%;
+
 }
 
 
@@ -68,34 +56,29 @@
     height: 41px;
     width: 41px;
     border-radius: 100%;
-    
+    margin:0 15px;
 }
 
 
 .btns-header{
-display: flex;
-justify-content: center;
-width: 20%;
-height: 100%;
-gap: 20px;
-overflow: hidden;
-align-items: center;
-padding:5px;
+    display: flex;
+    width: 20%;
+    height: 100%;
+    justify-content: end;
+    gap: 30px;
+    margin-right:20px ;
+    align-items: center;
 
-}
-
+} 
 
 
-.btn{
+.btn-header{
     background-color: transparent;
     outline-color: none;
     border:0; 
-    font-size: 20px;
-    width: 100%;
-    height:100%;
+    font-size: 18px;
     color:var(--font-color);
-    
-}
+} 
 
 .contenedor-nombre{
     display: flex;
@@ -110,12 +93,42 @@ padding:5px;
 }
 
 
-
-@media (min-width: 920px) {
-
-    .header .flecha{
-        display: none;
+@media (max-width: 900px) {
+    .btns-header{
+    gap:20px;
     }
+    .btn-header{
+        font-size: 16px;
+        }
+    /* .nombre{
+        font-size: 12px;
+    } */
+}
 
+
+@media (max-width: 700px) {
+
+    .nombre{
+    font-size: 12px;
     }
+    
+}
 
+@media (max-width: 590px) {
+    .btns-header{
+        gap:10px;
+        }
+        .btn-header{
+            font-size: 12px;
+            }
+}
+
+
+
+@media (min-width: 590px) {
+
+    .flecha{
+    display:none;
+    }
+    
+}

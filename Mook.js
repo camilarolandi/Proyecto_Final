@@ -11,6 +11,7 @@ export const MOOK_CONTACTOS =[
         email: "lola@gmail.com" ,
         thumbnail: "https://www.creartuavatar.com/images/f10.svg",
         estado_contacto:"En linea",
+        descripcion_perfil:"Hola me llamo Lola",
         nombre_usuario: "Lolaaaa :)",
         mensajes:[
                     {

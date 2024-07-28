@@ -4,8 +4,9 @@
 import React, { useEffect, useState } from 'react'
 import { MOOK_CONTACTOS } from '../../../Mook'
 import {Link} from 'react-router-dom'
-import "./contactos.css"
 import { MyProfile } from '../../Components/MyProfile/MyProfile'
+import "./contactos.css"
+import '../../styles.css'
 
 
 
@@ -16,7 +17,6 @@ export const Contactos = ({ContactSelect}) => {
     const [modoChange, setModoChange] = useState(false)
     const [showMyProfile, setShowMyProfile] = useState(false)
 
-    
     useEffect ( () => {
 
         if (searchString ){
@@ -29,7 +29,6 @@ export const Contactos = ({ContactSelect}) => {
             setListaContactos(MOOK_CONTACTOS)
             
         }
-            
     },
     [searchString]
 )
@@ -51,31 +50,34 @@ const hideProfile = () => {
 }
 
     return (
-
             <div className ={`contact-screen ${modoChange ? 'modo-claro' : ''}`} >
                 
-                <div className='photo-profile-cont'>
+                <header className='photo-profile-cont'>
                     <img className='myprofile-photo' 
                     src='https://www.creartuavatar.com/images/f17.svg'
                     onClick={showProfile}
                     />
                     {showMyProfile && <MyProfile onClose={hideProfile}/>}
 
-                    <div className='icons-fns-left-1'>
-                        <i className={`icons-left bi bi-people ${modoChange ? 'modo-claro' : ''}`}></i>
-                        <i className={`icons-left bi bi-disc ${modoChange ? 'modo-claro' : ''}`}></i>
-                        <i className={`icons-left bi bi-chat-quote${modoChange ? 'modo-claro' : ''}`}></i>
-                        <i className={`icons-left bi bi-chat-right-dots ${modoChange ? 'modo-claro' : ''}`}></i>
-                        <i className={`icons-left bi bi-three-dots-vertical${modoChange ? 'modo-claro' : ''}`}></i>
+                    <div className='icons-fns-left'>
+                        <i className="icons-left bi bi-people"></i>
+                        <i className= "icons-left bi bi-disc" ></i>
+                        <i className= "icons-left bi bi-chat-quote" ></i>
+                        <i className= "icons-left bi bi-chat-right-dots"></i>
+                        <i className= "icons-left bi bi-three-dots-vertical" ></i>
                         </div>
-                        <div className='icons-fns-left-2'>
-                        <i className=" punto bi bi-camera"></i>
-                        <i className=" add bi bi-plus-lg"></i>
-                        
+                        <div className='mobile icons-fns-left'>
+                            <i class=" punto bi bi-three-dots"></i>  
+                            <div className='icons-left'>
+                            <i className=" punto bi bi-camera"></i>
+                            <i className=" add punto bi bi-plus-lg"></i>
+                            </div>
                         </div>
-                </div>
+                </header>
                 
-                <header className= {`icons-header ${ modoChange ? 'modo-claro-2' : ''}`} >
+
+                {/* CLASE: CAMBIO DE MODO: NO ESTA BIEN :|  ) */}
+                {/*  <header className= {`icons-header ${ modoChange ? 'modo-claro-2' : ''}`} >
 
                     <i className="punto p1 bi bi-three-dots-vertical"></i>
                     <button className="boton-alternar" onClick={modosChange}>
@@ -94,7 +96,7 @@ const hideProfile = () => {
                         <i className={`icons-left bi bi-three-dots-vertical${modoChange ? 'modo-claro' : ''}`}></i>
                         </div>
 
-                    </header>                
+                    </header>  */}               
                     <div className='contactos-header'>
                     <span className='titulos-contactos'>Chats</span>
                     <input 
@@ -104,11 +106,12 @@ const hideProfile = () => {
                     onChange={handleSearch} 
                     value={searchString} />
                     {listaContactos.length === 0 && searchString !== '' && (
-                    <span className= {`string ${modoChange ? 'modo-claro' : ''}`} >No se encuentran resultados</span>)}
+                    < span className= {`string ${modoChange ? 'modo-claro' : ''}`} >No se encuentran resultados</span>)}
+
                     <div className='chat-options'>
                         <span className='opt my-data'>Todos</span>
-                        <span className='opt my-data'>No leìdos</span>
-                        <span className='opt my-data'>Favoritos</span>
+                        <span className='opt my-data'>No leidos</span>
+                        <span className='fav opt my-data'>Favoritos</span>
                         <span className='opt my-data'>Grupos</span>
                     </div>
                 </div>
@@ -130,46 +133,38 @@ const hideProfile = () => {
                                 </div>
                                 
                             </div>
-                
                         )
-
-
                     })}
                 </div> 
-
-        
-             {/*    <div className='container-opciones'>
-                                    <div className='icon-mje-buscar'>
-                                    <i class="bi bi-circle-square"></i>
-                                        <span>Novedades</span>
-                                    </div>
-                                    <div className="icon-mje-buscar">
-                                    <i className="bi bi-telephone"></i>
-                                        <span>LLamadas</span>
-                                    </div>
-                                    <div className="icon-mje-buscar">
-                                    <i className="bi bi-people-fill"></i>
-                                        <span>Comunidades</span>
-                                    </div>
-                                    <div className="icon-mje-buscar">
-                                    <i className="bi bi-chat"></i>
-                                        <span>Chats</span>
-                                    </div>
-                                    <div className="icon-mje-buscar">
-                                    <i className="bi bi-gear-wide-connected"></i>
-                                        <span>Configuracion</span>
-                                    </div>
-                                    
-                                </div> */}
-                
+            <div className='container-opciones-mobile'>
+                <div className='icons-mobile'>
+                    <i class="bi bi-circle-square"></i>
+                    <span>Novedades</span>
+                </div>
+                <div className="icons-mobile">
+                    <i className="bi bi-telephone"></i>
+                    <span>LLamadas</span>
+                </div>
+                <div className="icons-mobile">
+                    <i className="bi bi-people-fill"></i>
+                    <span>Comunidades</span>
+                </div>
+                <div className="icons-mobile">
+                    <i className="bi bi-chat"></i>
+                    <span>Chats</span>
+                </div>
+                <div className="icons-mobile">
+                    <i className="bi bi-gear-wide-connected"></i>
+                    <span>Configuracion</span>
+                </div>
+                </div>                    
             </div>  
-       
     )
 }
 
 
 
-
+/* FETCH */
 /* 
 import React from 'react'
 import { obtenerContactos } from '../../Fetching/fetching'
@@ -259,29 +254,3 @@ export const Contactos = () => {
 }
  */
 
-/* PROBAR */
-/* import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import './App.css'; // Archivo CSS donde definimos los estilos
-
-const ContactoItem = ({ contacto }) => {
-  const [claseComponente, setClaseComponente] = useState('photo-link');
-
-  const cambiarClaseComponente = () => {
-    const mediaQuery = window.matchMedia('(min-width: 768px)');
-    if (mediaQuery.matches) {
-      setClaseComponente('photo-link media-query-active');
-    } else {
-      setClaseComponente('photo-link');
-    }
-  };
-
-  return (
-    <Link className={claseComponente} to={"/screen/" + contacto.id} onClick={cambiarClaseComponente}>
-      <img className='photos' src={contacto.thumbnail} alt="profile-photos" />
-    </Link>
-  );
-};
-
-export default ContactoItem;
- */

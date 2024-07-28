@@ -1,6 +1,9 @@
 /* funciona :) */
 import React from 'react'
 import "./nvomje.css"
+import '../../styles.css'
+
+
 
 export const NuevoMje = ({enviarMensaje}) => {
 	const handleSubmitNewMensaje =(e) =>{
@@ -13,8 +16,14 @@ export const NuevoMje = ({enviarMensaje}) => {
 	return (
 		<div className='form-mje-enviar'>
 			<form className='formulario' onSubmit= {handleSubmitNewMensaje}>
+                <div className='emoji-container'>
+                    <i className=" bi bi-emoji-smile"></i>
+                    <i className=" bi bi-plus-lg"></i>
+                </div>
 				<input className= "input-texto" type="text" name="mensaje" id="mensaje" placeholder='Mensaje'/>
-				<button className= "btn" type='submit'><i className="bi bi-send"></i></button>
+		{/* 		<button className= "btn" type='submit'><i className="bi bi-send"></i></button> */}
+                <i className=" emoji bi bi-mic-fill"></i>
+
 			</form>
 		</div>
 	)
