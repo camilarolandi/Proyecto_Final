@@ -8,13 +8,25 @@ import "./screenchat.css"
 import '../../styles.css'
 import { Contactos } from '../Contactos/Contactos'
 
-	
-	export const Screen = ( ) => {
-
+export const Screen = ( ) => {
 	const { contactoID } = useParams()
 	const contacto = MOOK_CONTACTOS.find (contacto => contacto.id === Number(contactoID))
 	const {mensajes} = contacto
 	const [mensajes_data, setMensajesInfo]= useState(mensajes)
+    const [listaContactos, setListaContactos] = useState([])
+
+	console.log('from here', MOOK_CONTACTOS);
+
+	const unselectContact = (contact) => {
+		contact.is_selected = false;
+	}
+
+	useEffect(()=> {
+
+		setMensajesInfo(mensajes)
+
+	}, [contactoID,mensajes]
+)
 	
 	useEffect(()=> {
 
@@ -41,7 +53,7 @@ import { Contactos } from '../Contactos/Contactos'
 		<>
 			
 			<div className='screen-chat'>
-			<Header/>
+			<Header unselectContact={ unselectContact }/>
 			<ListaDeMensajes mensajes_info = {mensajes_data} />
 			<NuevoMje enviarMensaje={newMensaje}/>
 
@@ -52,16 +64,4 @@ import { Contactos } from '../Contactos/Contactos'
 	}  
  
 
- /* 	return (
-		<div className='contact-screen-container'>
-			<Contactos/> 
-			<div className='screen-chat'>
-			<Header/>
-			<ListaDeMensajes mensajes_info = {mensajes_data} />
-			<NuevoMje enviarMensaje={newMensaje}/>
-			
-		</div>
-		</div>
-		
-		)
-	}    */
+

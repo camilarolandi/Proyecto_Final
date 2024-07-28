@@ -6,7 +6,7 @@ import "./header.css"
 import '../../styles.css'
 
 
-export const Header = () => {		
+export const Header = ({unselectContact}) => {
 const {contactoID } = useParams()
 
 	const contacto = MOOK_CONTACTOS.find(contacto => contacto.id === Number(contactoID))
@@ -16,7 +16,7 @@ const {contactoID } = useParams()
 
 			<div className='header'>
 				
-				<Link className='flecha' to = {"/"}><i class="bi bi-arrow-left"></i></Link>
+				<Link className='flecha' onClick={() => unselectContact(contacto)} to = {"/"}><i class="bi bi-arrow-left"></i></Link>
 					<div className='contenedor-contacto'>
 					<Link 
 					className='photo-link' to={"/contactodata/" + contacto.id + "/screen"}><img className='profile-photo' src= {contacto.thumbnail} alt="profile-photos" /></Link>	
