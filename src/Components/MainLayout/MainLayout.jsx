@@ -1,33 +1,37 @@
+
 import React, { useState } from 'react'
 import { Contactos, Screen } from '../../Screens'
-import { Route, Routes, useParams} from 'react-router-dom'
+import { Route, Routes} from 'react-router-dom'
 import { ContactoData } from '../Contacto-data/ContactoData'
 import "./mainlayout.css"
 import '../../styles.css'
+import { NuevoContacto } from '../NuevoContacto/NuevoContacto'
 
 
 
 	export const MainLayout = () => {
 		const [showWelcome, setShowWelcome] = useState(true)
-
+	
 
 		const hideWelcome = () => {
 			setShowWelcome(false)
 		}
-		
-
-
+	
 		return (
 		<div className="main-layout">
 			<Contactos ContactSelect={hideWelcome}/>  
-			<Routes>	
+			<Routes>
+				
 				<Route path="/screen/:contactoID" element={<Screen />} />
+				{/* <Route path="/nvocontacto/" element={<NuevoContacto />} /> */}
+				
 				<Route path="/contactodata/:contactoID/screen" element={
 					<>
 						<ContactoData />
 						<Screen />
 					</>
 				}/>
+				
 			</Routes> 
 
 		{showWelcome && (
@@ -37,7 +41,7 @@ import '../../styles.css'
 			</div> )}
 		</div>
 	)
-	}
+	} 
 
 
 	/* const [contactComponent]= document.getElementsByClassName("contact-screen")

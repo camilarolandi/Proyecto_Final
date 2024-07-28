@@ -7,6 +7,7 @@ import { ContactoData, Header, ListaDeMensajes, NuevoMje } from '../../Component
 import "./screenchat.css"
 import '../../styles.css'
 import { Contactos } from '../Contactos/Contactos'
+import '../../styles.css'
 
 	
 	export const Screen = ( ) => {
@@ -15,6 +16,7 @@ import { Contactos } from '../Contactos/Contactos'
 	const contacto = MOOK_CONTACTOS.find (contacto => contacto.id === Number(contactoID))
 	const {mensajes} = contacto
 	const [mensajes_data, setMensajesInfo]= useState(mensajes)
+
 	
 	useEffect(()=> {
 
@@ -37,10 +39,11 @@ import { Contactos } from '../Contactos/Contactos'
 	
 }
 
-	 return (
-		<>
+
+	return (
+	<>
 			
-			<div className='screen-chat'>
+			<div className='screen-chat' >
 			<Header/>
 			<ListaDeMensajes mensajes_info = {mensajes_data} />
 			<NuevoMje enviarMensaje={newMensaje}/>
@@ -50,10 +53,9 @@ import { Contactos } from '../Contactos/Contactos'
 		
 		)
 	}  
- 
 
- /* 	return (
-		<div className='contact-screen-container'>
+
+		{/* <div className='contact-screen-container'>
 			<Contactos/> 
 			<div className='screen-chat'>
 			<Header/>
@@ -64,4 +66,4 @@ import { Contactos } from '../Contactos/Contactos'
 		</div>
 		
 		)
-	}    */
+	}   */}   

@@ -126,7 +126,7 @@
     flex-direction: column;
     gap:5px;
     align-items: center;
-    font-size:  var(---font-size-conts);
+    font-size:  12px;
     background-color:var(--bgcolor-secondary);
     border-radius: 10px;
     margin: 5px ;
@@ -183,8 +183,10 @@
     width: 100%;
     height: auto;
     overflow: hidden;
-    font-size: var(---font-size-conts);
+    font-size: 12px;
 }
+
+
 .icons-fns-right{
     display:flex;
     gap: 15px;
@@ -192,15 +194,18 @@
     height: auto;
     color:var(--font-color);
     align-items: center;
-    font-size:var(---font-size-conts);
-}
- .icons-left{
-    display:flex;
-    height: auto;
-    color:var(--font-color);
-    align-items: center;
     font-size:12px;
-    padding-right: 8px;
-    gap:5px;
+}
 
-} 
+.icon-left-fn{
+display: flex;
+height: auto;
+color:var(--font-color);
+align-items: center;
+font-size:12px;
+padding-right: 8px;
+gap:5px;
+
+}
+
+

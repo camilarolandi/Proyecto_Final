@@ -32,9 +32,9 @@
     align-items: center;
     }
    
-/* 
+
   @media (max-width: 590px) {
-        .main-layout{
-       flex-direction:column;
+        .welcome-screen{
+      display:none;
         } 
-        }   */
+        }  

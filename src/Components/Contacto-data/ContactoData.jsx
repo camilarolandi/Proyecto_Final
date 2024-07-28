@@ -47,7 +47,7 @@ export const ContactoData = () => {
                                                 <i className="bi bi-image-fill"></i>
                                                 <span>Archivos, enlaces y docs</span>
                                             </div>
-                                            <div  className='icons-left'>
+                                            <div  className='icon-left-fn'>
                                                 <span>12</span>
                                                 <i className="bi bi-chevron-right"></i>
                                             </div>
@@ -57,7 +57,7 @@ export const ContactoData = () => {
                                                 <i className="bi bi-star"></i>
                                                 <span>Mensajes destacados</span>
                                             </div>
-                                            <div className='icons-left'>
+                                            <div className='icon-left-fn'>
                                                 <span>Ninguno</span>
                                                 <i className="bi bi-chevron-right"></i>
                                         </div>
@@ -72,7 +72,7 @@ export const ContactoData = () => {
                                                 <i className="bi bi-flower1"></i>
                                                 <span>Fondo</span>
                                             </div>
-                                            <div  className='icons-left'>
+                                            <div  className='icon-left-fn'>
                                                 <i className="bi bi-chevron-right"></i>
                                             </div>
                                         </div>
@@ -81,7 +81,7 @@ export const ContactoData = () => {
                                                 <i className="bi bi-box-arrow-down"></i>
                                                 <span>Guardar en Fotos</span>
                                             </div>
-                                            <div className='icons-left'>
+                                            <div className='icon-left-fn'>
                                                 <span>Por defecto</span>
                                                 <i className="bi bi-chevron-right"></i>
                                         </div>

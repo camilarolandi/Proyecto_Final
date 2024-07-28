@@ -91,3 +91,19 @@
     height: 100%;
     color:var(--font-color);
 }
+
+
+@media (max-width: 590px) {
+    .emoji{
+    display: none;
+    } 
+    .smile{
+        display: none;
+        } 
+}
+
+@media (min-width: 590px) {
+    .btn{
+    display: none;
+    } 
+}

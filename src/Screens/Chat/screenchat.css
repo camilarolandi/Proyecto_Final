@@ -11,6 +11,12 @@
     --bgcolor-input: #808080;
 }
 
+.contact-screen-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+}
 .screen-chat{
     height:100%;
     width: 70%;
@@ -33,3 +39,9 @@
 }  
 
 
+/* 
+ @media (max-width: 590px) {
+    .screen-chat{
+    width: 100%;;
+    } 
+} */

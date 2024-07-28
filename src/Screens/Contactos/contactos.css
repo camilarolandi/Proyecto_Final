@@ -290,6 +290,13 @@ background-color:  var(--bgcolor-secondary-light);
 }
 
 
+.show{
+    display: flex;
+}
+.hide{
+    display:none;
+}
+
 @media (max-width: 900px) {
 .contact-screen{
 width: 50%;
@@ -306,8 +313,10 @@ font-size: 12px;
 @media (max-width: 590px) {
 .contact-screen{
 width: 100%;
-}
-
+} 
+/* .contact-screen{
+    display: none;
+    }  */
 .photo-profile-cont{
 background-color: var(--bgcolor-primary);
 justify-content: end;

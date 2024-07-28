@@ -3,10 +3,11 @@
 
 import React, { useEffect, useState } from 'react'
 import { MOOK_CONTACTOS } from '../../../Mook'
-import {Link} from 'react-router-dom'
+import {Link, useParams} from 'react-router-dom'
 import { MyProfile } from '../../Components/MyProfile/MyProfile'
 import "./contactos.css"
 import '../../styles.css'
+import { NuevoContacto } from '../../Components/NuevoContacto/NuevoContacto'
 
 
 
@@ -16,6 +17,10 @@ export const Contactos = ({ContactSelect}) => {
     const [searchString, setSearchString] = useState('')
     const [modoChange, setModoChange] = useState(false)
     const [showMyProfile, setShowMyProfile] = useState(false)
+    const { contactoID } = useParams()
+	const contacto = MOOK_CONTACTOS.find (contacto => contacto.id === Number(contactoID))
+    const [contactos_data, setContactosInfo]= useState(contacto)
+    
 
     useEffect ( () => {
 
@@ -41,6 +46,7 @@ const modosChange = () => {
     setModoChange(modoClaro => !modoClaro)
 }
 
+
 const showProfile = () => {
     setShowMyProfile(true)
 }
@@ -49,7 +55,26 @@ const hideProfile = () => {
     setShowMyProfile(false)
 }
 
+const newContacto = (nvoNombre,nvoApellido,nvoTelefono) => {
+		
+    const contacto_nvo =   {
+    nombre:  nvoNombre,
+    apellido: nvoApellido ,
+    telefono: nvoTelefono,
+    estado:"Disponible",
+    direccion:"Ruta 23",
+  /*   thumbnail:"", */
+    estado_contacto:"En linea",
+    id: contactos_data.length + 1
+    }	
+	
+    setContactosInfo([...contactos_data,contacto_nvo])
+
+}
+
     return (
+        <>
+          {/*   <NuevoContacto nvoContact={newContacto}/> */}
             <div className ={`contact-screen ${modoChange ? 'modo-claro' : ''}`} >
                 
                 <header className='photo-profile-cont'>
@@ -58,10 +83,9 @@ const hideProfile = () => {
                     onClick={showProfile}
                     />
                     {showMyProfile && <MyProfile onClose={hideProfile}/>}
-
                     <div className='icons-fns-left'>
                         <i className="icons-left bi bi-people"></i>
-                        <i className= "icons-left bi bi-disc" ></i>
+                        <Link to ={"/nvocontacto/"} > <i className= "icons-left bi bi-disc" ></i></Link> 
                         <i className= "icons-left bi bi-chat-quote" ></i>
                         <i className= "icons-left bi bi-chat-right-dots"></i>
                         <i className= "icons-left bi bi-three-dots-vertical" ></i>
@@ -120,7 +144,13 @@ const hideProfile = () => {
                         return(
                             <div className= "contact-cont" /* {`contact-cont ${modoChange ? 'modo-claro' : ''}`}  key = {contacto.id} */>
                                 <div className='contacto-data'>
-                                    <Link className='photo-link' to = {"/screen/" + contacto.id}><img className='photos' src= {contacto.thumbnail} alt="profile-photos" onClick={ContactSelect}/></Link>
+                                    <Link className='photo-link' to = {"/screen/" + contacto.id}>
+                                    <img className='photos' 
+                                    src= {contacto.thumbnail} 
+                                    alt="profile-photos" 
+                                    onClick= {ContactSelect}
+                                    />
+                                    </Link>
                                     <div className='contacto-mje-nombre'>
                                         <span className={`nombre-cont ${modoChange ? 'modo-claro' : ''}`}>{contacto.nombre} {contacto.apellido}</span>
                                         <p className={`mensaje-cont ${modoChange ? 'modo-claro' : ''}`}> {contacto.mensajes[0].text}</p>
@@ -159,6 +189,7 @@ const hideProfile = () => {
                 </div>
                 </div>                    
             </div>  
+            </>
     )
 }
 
