@@ -1,0 +1,18 @@
+:root {
+    --bgcolor-primary: #000000;
+    --font-color:#ffffff;
+    --border-color: #000000;
+    --bgcolor-secondary: #1d1d1d;
+
+}
+
+
+
+
+.welcome-screen{
+display: flex;
+flex-direction: column;
+width: 70%;
+justify-content: center;
+align-items: center;
+}

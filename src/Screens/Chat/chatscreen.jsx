@@ -13,12 +13,10 @@ export const Screen = ( ) => {
 	const contacto = MOOK_CONTACTOS.find (contacto => contacto.id === Number(contactoID))
 	const {mensajes} = contacto
 	const [mensajes_data, setMensajesInfo]= useState(mensajes)
-    const [listaContactos, setListaContactos] = useState([])
-
-	console.log('from here', MOOK_CONTACTOS);
-
+   
+	
 	const unselectContact = (contact) => {
-		contact.is_selected = false;
+		contact.is_selected = false
 	}
 
 	useEffect(()=> {

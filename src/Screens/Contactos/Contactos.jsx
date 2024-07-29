@@ -1,41 +1,56 @@
 /* Pantalla de contactos*/
 import React, { useEffect, useState } from 'react'
 import { MOOK_CONTACTOS } from '../../../Mook'
-import {Link} from 'react-router-dom'
+import {Link, useParams} from 'react-router-dom'
 import { MyProfile } from '../../Components/MyProfile/MyProfile'
 import "./contactos.css"
 import '../../styles.css'
-import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom'
+import { NuevoContacto} from '../../Components/NuevoContacto/NuevoContato'
 
-export const Contactos = ({ContactSelect}) => {
+export const Contactos = ({ContactSelect,hideWelcome}) => {
     const location = useLocation();
     const [listaContactos, setListaContactos] = useState([])
     const [searchString, setSearchString] = useState('')
     const [modoChange, setModoChange] = useState(false)
     const [showMyProfile, setShowMyProfile] = useState(false)
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
-    const isChatSelected = listaContactos.some(contact => contact.is_selected === true);
+   /*  const [contacto_data, setContactoInfo]= useState(MOOK_CONTACTOS ) */
+    
+    const newContacto = (nuevoNombre,nuevoApellido,nuevoTelefono,nuevoThumbnail) => {
+		
+		const newId = (listaContactos.length > 0 ? listaContactos[listaContactos.length - 1].id + 1 : 1)
+			const contacto_nvo =   {
+			nombre: nuevoNombre ,
+			apellido: nuevoApellido ,
+			telefono:nuevoTelefono ,
+			estado:"En el trabajo",
+			thumbnail: nuevoThumbnail,
+			id: newId,
+            mensajes: [{ text: '', hour: '' }] 
+        }
+        setListaContactos([...listaContactos,contacto_nvo])}
 
-    useEffect(() => {}, [location]);
-
+    const isChatSelected = listaContactos.some(contact => contact.is_selected === true)
+    useEffect(() => {}, [location])
     useEffect (() => {
         const handleResize = () => {
-            setWindowWidth(window.innerWidth);
-        };
+            setWindowWidth(window.innerWidth)
+        }
 
         window.addEventListener('resize', handleResize);
 
         return () => {
             window.removeEventListener('resize', handleResize);
-        };
-    }, []);
+        }
+    }, [])
 
     let shouldRenderHtml = false;
 
     if ((windowWidth < 590 && ! isChatSelected) || windowWidth >= 590) {
-        shouldRenderHtml = true;
-    };
+        shouldRenderHtml = true
+    }
 
     useEffect ( () => {
         if (searchString ){
@@ -66,6 +81,7 @@ const hideProfile = () => {
 
     return (
         <>
+           <NuevoContacto contactoNuevo={newContacto}/> 
             {
                 shouldRenderHtml &&
                 <div className ={`contact-screen ${modoChange ? 'modo-claro' : ''}`} >
@@ -78,7 +94,7 @@ const hideProfile = () => {
 
                     <div className='icons-fns-left'>
                         <i className="icons-left bi bi-people"></i>
-                        <i className= "icons-left bi bi-disc" ></i>
+                        <Link to= {"/nuevocontacto/"}><i className= "icons-left bi bi-disc" ></i></Link>
                         <i className= "icons-left bi bi-chat-quote" ></i>
                         <i className= "icons-left bi bi-chat-right-dots"></i>
                         <i className= "icons-left bi bi-three-dots-vertical" ></i>
@@ -115,7 +131,14 @@ const hideProfile = () => {
                         return(
                             <div className= "contact-cont" /* {`contact-cont ${modoChange ? 'modo-claro' : ''}`}  key = {contacto.id} */>
                                 <div className='contacto-data'>
-                                    <Link className='photo-link' onClick={() => ContactSelect(contacto)} to = {"/screen/" + contacto.id}><img className='photos' src= {contacto.thumbnail} alt="profile-photos"/></Link>
+                                    <Link className='photo-link' onClick={() => ContactSelect(contacto)} to = {"/screen/" + contacto.id}>
+                                    <img className='photos' 
+                                    src= {contacto.thumbnail} 
+                                    alt="profile-photos"
+                                    onClick={hideWelcome}
+                                    />
+                                    
+                                    </Link>
                                     <div className='contacto-mje-nombre'>
                                         <span className={`nombre-cont ${modoChange ? 'modo-claro' : ''}`}>{contacto.nombre} {contacto.apellido}</span>
                                         <p className={`mensaje-cont ${modoChange ? 'modo-claro' : ''}`}> {contacto.mensajes[0].text}</p>
