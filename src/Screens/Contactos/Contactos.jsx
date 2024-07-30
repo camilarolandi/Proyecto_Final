@@ -1,12 +1,13 @@
 /* Pantalla de contactos*/
 import React, { useEffect, useState } from 'react'
 import { MOOK_CONTACTOS } from '../../../Mook'
-import {Link, useParams} from 'react-router-dom'
+import {json, Link, useParams} from 'react-router-dom'
 import { MyProfile } from '../../Components/MyProfile/MyProfile'
 import "./contactos.css"
 import '../../styles.css'
 import { useLocation } from 'react-router-dom'
 import { NuevoContacto} from '../../Components/NuevoContacto/NuevoContato'
+
 
 export const Contactos = ({ContactSelect,hideWelcome}) => {
     const location = useLocation();
@@ -14,11 +15,25 @@ export const Contactos = ({ContactSelect,hideWelcome}) => {
     const [searchString, setSearchString] = useState('')
     const [modoChange, setModoChange] = useState(false)
     const [showMyProfile, setShowMyProfile] = useState(false)
+    const [showFormNvoContacto, setshowFormNvoContacto] = useState(false)
     const [windowWidth, setWindowWidth] = useState(window.innerWidth)
-
-   /*  const [contacto_data, setContactoInfo]= useState(MOOK_CONTACTOS ) */
     
-    const newContacto = (nuevoNombre,nuevoApellido,nuevoTelefono,nuevoThumbnail) => {
+    
+    const contactosLocalStorage = () => {
+        const storedContactos = localStorage.getItem('contactos')
+        if (storedContactos) {
+            setListaContactos(JSON.parse(storedContactos))
+        } else {
+            setListaContactos(MOOK_CONTACTOS)
+        }
+    }
+
+    const saveContactosLocalStorage = (contactos) => {
+        localStorage.setItem('contactos', JSON.stringify(contactos));
+    }
+
+
+const newContacto = (nuevoNombre,nuevoApellido,nuevoTelefono,nuevoThumbnail) => {
 		
 		const newId = (listaContactos.length > 0 ? listaContactos[listaContactos.length - 1].id + 1 : 1)
 			const contacto_nvo =   {
@@ -28,12 +43,29 @@ export const Contactos = ({ContactSelect,hideWelcome}) => {
 			estado:"En el trabajo",
 			thumbnail: nuevoThumbnail,
 			id: newId,
-            mensajes: [{ text: '', hour: '' }] 
+            mensajes: [
+                {   
+                    author: 'Yo',
+                    text: 'Buenas  ',
+                    estado: 'Visto',
+                    day: 'Hoy',
+                    hour: '01:45',
+                    id: '1'
+                }] 
         }
-        setListaContactos([...listaContactos,contacto_nvo])}
+        const updatedContactos = [...listaContactos, contacto_nvo];
+        setListaContactos(updatedContactos);
+        saveContactosLocalStorage(updatedContactos);
+    }
 
     const isChatSelected = listaContactos.some(contact => contact.is_selected === true)
     useEffect(() => {}, [location])
+    
+    
+    useEffect(() => {
+        contactosLocalStorage()
+    }, [])
+
     useEffect (() => {
         const handleResize = () => {
             setWindowWidth(window.innerWidth)
@@ -54,13 +86,13 @@ export const Contactos = ({ContactSelect,hideWelcome}) => {
 
     useEffect ( () => {
         if (searchString ){
-            const listaContactosFilter = MOOK_CONTACTOS.filter(contacto=> contacto.nombre.toLowerCase().includes(searchString.toLowerCase()) || contacto.apellido.toLowerCase().includes(searchString.toLowerCase()))
+            const listaContactosFilter = listaContactos.filter(contacto=> contacto.nombre.toLowerCase().includes(searchString.toLowerCase()) || contacto.apellido.toLowerCase().includes(searchString.toLowerCase()))
             
             setListaContactos(listaContactosFilter)
         }
         else {
 
-            setListaContactos(MOOK_CONTACTOS)
+            contactosLocalStorage();
             
         }
     },
@@ -74,17 +106,25 @@ const handleSearch = (e) =>{
 const showProfile = () => {
     setShowMyProfile(true)
 }
+const showNvoContact = () => {
+    setshowFormNvoContacto(true)
+}
 
 const hideProfile = () => {
     setShowMyProfile(false)
 }
 
+const hideNvoContact = () => {
+    setshowFormNvoContacto(false)
+}
+
+
     return (
         <>
-           <NuevoContacto contactoNuevo={newContacto}/> 
+            {showFormNvoContacto &&  <NuevoContacto contactoNuevo={newContacto} onCloseNvoContact={hideNvoContact}/> }
             {
                 shouldRenderHtml &&
-                <div className ={`contact-screen ${modoChange ? 'modo-claro' : ''}`} >
+                <div className ="contact-screen" >
                 <header className='photo-profile-cont'>
                     <img className='myprofile-photo' 
                     src='https://www.creartuavatar.com/images/f17.svg'
@@ -94,7 +134,7 @@ const hideProfile = () => {
 
                     <div className='icons-fns-left'>
                         <i className="icons-left bi bi-people"></i>
-                        <Link to= {"/nuevocontacto/"}><i className= "icons-left bi bi-disc" ></i></Link>
+                        <button onClick={showNvoContact}><i className= "icons-left bi bi-disc" ></i></button>
                         <i className= "icons-left bi bi-chat-quote" ></i>
                         <i className= "icons-left bi bi-chat-right-dots"></i>
                         <i className= "icons-left bi bi-three-dots-vertical" ></i>
@@ -111,13 +151,13 @@ const hideProfile = () => {
                     <div className='contactos-header'>
                     <span className='titulos-contactos'>Chats</span>
                     <input 
-                    className={`input-buscar ${modoChange ? 'modo-claro-2' : ''}`} 
+                    className="input-buscar" 
                     type="text" 
                     placeholder='Buscar contacto' 
                     onChange={handleSearch} 
                     value={searchString} />
                     {listaContactos.length === 0 && searchString !== '' && (
-                    < span className= {`string ${modoChange ? 'modo-claro' : ''}`} >No se encuentran resultados</span>)}
+                    < span className= "string"  >No se encuentran resultados</span>)}
 
                     <div className='chat-options'>
                         <span className='opt my-data'>Todos</span>
@@ -126,7 +166,7 @@ const hideProfile = () => {
                         <span className='opt my-data'>Grupos</span>
                     </div>
                 </div>
-                <div className={`contacts ${modoChange ? 'modo-claro' : ''}`}>
+                <div className="contacts" >
                     {listaContactos.map(contacto=>{
                         return(
                             <div className= "contact-cont" /* {`contact-cont ${modoChange ? 'modo-claro' : ''}`}  key = {contacto.id} */>
@@ -137,11 +177,10 @@ const hideProfile = () => {
                                     alt="profile-photos"
                                     onClick={hideWelcome}
                                     />
-                                    
                                     </Link>
                                     <div className='contacto-mje-nombre'>
-                                        <span className={`nombre-cont ${modoChange ? 'modo-claro' : ''}`}>{contacto.nombre} {contacto.apellido}</span>
-                                        <p className={`mensaje-cont ${modoChange ? 'modo-claro' : ''}`}> {contacto.mensajes[0].text}</p>
+                                        <span className="nombre-cont">{contacto.nombre} {contacto.apellido}</span>
+                                        <p> className="mensaje-cont" </p>
                                     </div>
                                 </div>
                                     

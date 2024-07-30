@@ -1,0 +1,25 @@
+
+
+
+
+.cont-form-nvo-contacto{
+    width: 20%;
+    height: 100%;
+    /* position: absolute;
+    z-index: 1; */
+    background-color: #808080;
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    
+}
+
+.form-nvo-contacto{
+    border: 1px solid black;
+    width: 80%;
+    
+}
+
+

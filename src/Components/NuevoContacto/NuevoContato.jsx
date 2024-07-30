@@ -1,7 +1,7 @@
 
 import React from 'react'
-
-export const NuevoContacto = ({contactoNuevo}) => {
+import "./nuevocontacto.css"
+export const NuevoContacto = ({contactoNuevo,onCloseNvoContact}) => {
 
 const handleSubmitNewContacto=(e) =>{
 		e.preventDefault()
@@ -14,9 +14,10 @@ const handleSubmitNewContacto=(e) =>{
 	} 
 
 	return (
-		<div >
-			<form onSubmit={handleSubmitNewContacto} >
-                
+		<div className='cont-form-nvo-contacto'>
+			<form className='form-nvo-contacto' onSubmit={handleSubmitNewContacto} >
+			<button onClick={onCloseNvoContact}> <i className="bi bi-x-lg"></i>
+            </button>
                 <label>Nombre</label>
 				<input className= "input-texto" type="text" name="nombre" id="nombre" placeholder='Nombre'/>
                 <label>Apellido</label>

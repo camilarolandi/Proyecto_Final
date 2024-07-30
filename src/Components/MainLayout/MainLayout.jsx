@@ -23,12 +23,14 @@ import '../../styles.css'
 			<Contactos ContactSelect={contactSelect} hideWelcome={hideWelcome} />
 			<Routes>	
 				<Route path="/screen/:contactoID" element={<Screen />} />
-				<Route path="/contactodata/:contactoID/screen" element={
+				
+				
+				 <Route path="/contactodata/:contactoID/screen" element={
 					<>
 						<ContactoData />
 						<Screen />
 					</>
-				}/>
+				}/> 
 			</Routes> 
 
 			{showWelcome && (
